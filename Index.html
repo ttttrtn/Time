@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+#clock {
+    font-family: Arial, sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+    padding: 10px;
+}
+</style>
+</head>
+<body>
+
+<div id="clock">Loading...</div>
+
+<script>
+function updateClock() {
+    const options = {
+        timeZone: 'America/New_York',
+        hour: 'numeric',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+    };
+
+    const time = new Date().toLocaleTimeString('en-US', options);
+    document.getElementById('clock').textContent = time + ' ET';
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+</script>
+
+</body>
+</html>
